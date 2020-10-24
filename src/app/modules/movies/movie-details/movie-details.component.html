@@ -1,4 +1,22 @@
-<a class="back" routerLink="/movies" [routerLinkActive]="['active-link']">
-  < Back</a
->
-<p>movie-details works!</p>
+<div class="container">
+  <a class="back" routerLink="/movies" [routerLinkActive]="['active-link']">
+    < Back</a
+  >
+
+  <div class="item-box cont col-direct">
+    <div class="item-image text-center">
+      <img *ngIf="data && !data.video" [src]="imagePath + data.backdrop_path" />
+      <iframe *ngIf="data && data.video" [src]="videoPath + data.imdb_id">
+      </iframe>
+    </div>
+    <div class="item-content">
+      <p class="text-center">
+        {{ data?.title }}
+      </p>
+
+      <p class="text-center">
+        {{ data?.overview }}
+      </p>
+    </div>
+  </div>
+</div>

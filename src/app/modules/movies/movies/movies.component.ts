@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../../services/movies.service';
+import { environment } from './../../../../environments/environment';
+import { filterDefault } from './../../../app.constants';
 
 @Component({
   selector: 'app-movies',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-
-  constructor() { }
+  data: any[] = [];
+  imagePath = environment.image_path;
+  constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
+    this.getTopRatedMovies();
   }
 
+  getTopRatedMovies(): void {
+    this.moviesService.getMovies(filterDefault).subscribe(response => {
+      this.data = response.body.results.slice(0, 10);
+    });
+  }
 }

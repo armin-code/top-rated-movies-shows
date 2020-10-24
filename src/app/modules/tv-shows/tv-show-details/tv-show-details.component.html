@@ -1,4 +1,20 @@
-<a class="back" routerLink="/tv-shows" [routerLinkActive]="['active-link']">
-  < Back</a
->
-<p>tv-show-details works!</p>
+<div class="container">
+  <a class="back" routerLink="/tv-shows" [routerLinkActive]="['active-link']">
+    < Back</a
+  >
+
+  <div class="item-box cont col-direct">
+    <div class="item-image text-center">
+      <img *ngIf="data?.backdrop_path" [src]="imagePath + data.backdrop_path" />
+    </div>
+    <div class="item-content">
+      <p class="text-center">
+        {{ data?.name }}
+      </p>
+
+      <p class="text-center">
+        {{ data?.overview }}
+      </p>
+    </div>
+  </div>
+</div>

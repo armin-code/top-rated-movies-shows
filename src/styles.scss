@@ -12,4 +12,78 @@ body {
   display: inline-block;
   border: 1px solid #eee;
   border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1170px;
+  min-width: 320px;
+  position: relative;
+  margin: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.item-box {
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
+  box-sizing: border-box;
+  margin: 1%;
+  position: relative;
+  cursor: pointer;
+}
+
+.wid-half {
+  width: 48%;
+}
+
+.cont {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.center-items {
+  justify-content: center;
+}
+
+.item-image {
+  overflow: hidden;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.item-content {
+  padding: 10px;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item-content .advisor-name {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #182e64;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.col-direct {
+  flex-direction: column;
+}
+
+.item-image img,
+iframe {
+  height: auto;
+  width: 100%;
 }

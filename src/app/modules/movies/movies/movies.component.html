@@ -1,2 +1,22 @@
-<app-navigation></app-navigation>
-<p>movies works!</p>
+<div class="container">
+  <app-navigation></app-navigation>
+  <div class="content-row cont wrap center-items">
+    <div
+      *ngFor="let movie of data"
+      class="wid-half item-box cont col-direct"
+      routerLink="/movies/{{ movie.id }}"
+    >
+      <div class="item-image text-center">
+        <img
+          *ngIf="movie?.backdrop_path"
+          [src]="imagePath + movie.backdrop_path"
+        />
+      </div>
+      <div class="item-content">
+        <p class="text-center">
+          {{ movie.title }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

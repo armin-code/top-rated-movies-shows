@@ -1,2 +1,22 @@
-<app-navigation></app-navigation>
-<p>tv-shows works!</p>
+<div class="container">
+  <app-navigation></app-navigation>
+  <div class="content-row cont wrap center-items">
+    <div
+      *ngFor="let show of data"
+      class="wid-half item-box cont col-direct"
+      routerLink="/tv-shows/{{ show.id }}"
+    >
+      <div class="item-image text-center">
+        <img
+          *ngIf="show?.backdrop_path"
+          [src]="imagePath + show.backdrop_path"
+        />
+      </div>
+      <div class="item-content">
+        <p class="text-center">
+          {{ show.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
