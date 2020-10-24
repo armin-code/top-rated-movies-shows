@@ -1,0 +1,15 @@
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.active-link {
+  background-color: #039be5 !important;
+  color: white;
+  box-shadow: 0 8px 16px #00000066;
+  transition: margin-left 0.3s ease-out;
+}
