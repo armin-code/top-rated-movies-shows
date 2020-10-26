@@ -28,7 +28,6 @@ export class MovieDetailsComponent implements OnInit {
     this.moviesService
       .getMovieDetails(filterDefault, movieId)
       .subscribe(response => {
-        console.log('getTvShows', response);
         this.data = response.body;
       });
   }

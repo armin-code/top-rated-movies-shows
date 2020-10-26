@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../../models/movie/movie.model';
 import { MoviesService } from '../../../services/movies/movies.service';
+import {
+  checkSearchFilter,
+  getTopTen
+} from '../../../shared/utils/helper.utils';
 import { environment } from './../../../../environments/environment';
 import { filterDefault } from './../../../app.constants';
 
@@ -21,19 +25,18 @@ export class MoviesComponent implements OnInit {
 
   getTopRatedMovies(): void {
     this.moviesService.getMovies(filterDefault).subscribe(response => {
-      this.data = response.body.results.slice(0, 10);
+      this.data = getTopTen(response.body.results);
     });
   }
 
   searchMovies(filter): void {
     this.moviesService.searchMovies(filter).subscribe(response => {
-      console.log('searchMovies', response);
-      this.data = response.body.results.slice(0, 10);
+      this.data = response.body.results;
     });
   }
 
   getMovies(value: string): void {
-    const searchFilter = value ? value.length > 2 : 0;
+    const searchFilter = checkSearchFilter(value);
     this.moviesService.filter = value;
     if (searchFilter) {
       const filterSerach = {

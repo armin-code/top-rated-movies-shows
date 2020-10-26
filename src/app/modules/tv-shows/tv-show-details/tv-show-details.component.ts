@@ -29,7 +29,6 @@ export class TvShowDetailsComponent implements OnInit {
     this.tvShowsService
       .getTVShowDetails(filterDefault, showId)
       .subscribe(response => {
-        console.log('getTVShowDetails', response);
         this.data = response.body;
       });
   }
