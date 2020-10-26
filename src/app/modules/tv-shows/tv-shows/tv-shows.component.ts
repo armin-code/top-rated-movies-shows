@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TvShow } from '../../../models/tv-show/tv-show.model';
 import { TvShowsService } from '../../../services/tv-shows/tv-shows.service';
 import { environment } from './../../../../environments/environment';
 import { filterDefault } from './../../../app.constants';
@@ -9,8 +10,9 @@ import { filterDefault } from './../../../app.constants';
   styleUrls: ['./tv-shows.component.scss']
 })
 export class TvShowsComponent implements OnInit {
-  data: any[] = [];
+  data: TvShow[] = [];
   imagePath = environment.image_path;
+
   constructor(public tvShowsService: TvShowsService) {}
 
   ngOnInit(): void {

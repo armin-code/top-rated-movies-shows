@@ -19,7 +19,7 @@ export class DelayedInputDirective implements OnInit, OnDestroy {
 
   constructor(private elementRef: ElementRef<HTMLInputElement>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     fromEvent(this.elementRef.nativeElement, 'input')
       .pipe(
         debounce(() => timer(this.delayTime)),
@@ -35,7 +35,7 @@ export class DelayedInputDirective implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
   }
 }

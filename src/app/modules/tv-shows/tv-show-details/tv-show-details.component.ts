@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { filterDefault } from '../../../app.constants';
+import { TvShowDetails } from '../../../models/tv-show/tv-show-details.model';
 import { TvShowsService } from '../../../services/tv-shows/tv-shows.service';
 
 @Component({
@@ -10,9 +11,10 @@ import { TvShowsService } from '../../../services/tv-shows/tv-shows.service';
   styleUrls: ['./tv-show-details.component.scss']
 })
 export class TvShowDetailsComponent implements OnInit {
-  data: any;
+  data: TvShowDetails;
   imagePath = environment.image_path;
   videoPath = environment.video_path;
+
   constructor(
     private tvShowsService: TvShowsService,
     private route: ActivatedRoute
@@ -27,6 +29,7 @@ export class TvShowDetailsComponent implements OnInit {
     this.tvShowsService
       .getTVShowDetails(filterDefault, showId)
       .subscribe(response => {
+        console.log('getTVShowDetails', response);
         this.data = response.body;
       });
   }

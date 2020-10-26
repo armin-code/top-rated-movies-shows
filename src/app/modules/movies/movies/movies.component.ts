@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../../../models/movie/movie.model';
 import { MoviesService } from '../../../services/movies/movies.service';
 import { environment } from './../../../../environments/environment';
 import { filterDefault } from './../../../app.constants';
@@ -9,7 +10,7 @@ import { filterDefault } from './../../../app.constants';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  data: any[] = [];
+  data: Movie[] = [];
   imagePath = environment.image_path;
 
   constructor(public moviesService: MoviesService) {}
@@ -26,6 +27,7 @@ export class MoviesComponent implements OnInit {
 
   searchMovies(filter): void {
     this.moviesService.searchMovies(filter).subscribe(response => {
+      console.log('searchMovies', response);
       this.data = response.body.results.slice(0, 10);
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { filterDefault } from '../../../app.constants';
+import { MovieDetails } from '../../../models/movie/movie-details.model';
 import { MoviesService } from '../../../services/movies/movies.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { MoviesService } from '../../../services/movies/movies.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  data: any;
+  data: MovieDetails;
   imagePath = environment.image_path;
   videoPath = environment.video_path;
   constructor(
@@ -27,6 +28,7 @@ export class MovieDetailsComponent implements OnInit {
     this.moviesService
       .getMovieDetails(filterDefault, movieId)
       .subscribe(response => {
+        console.log('getTvShows', response);
         this.data = response.body;
       });
   }
