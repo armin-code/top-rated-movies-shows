@@ -8,7 +8,8 @@ import { createHttpParams } from '../../shared/utils/create-http-params.utils';
   providedIn: 'root'
 })
 export class TvShowsService {
-  resourceUrl = `${environment.api_url}tv`;
+  filter = '';
+  private resourceUrl = `${environment.api_url}tv`;
   constructor(private http: HttpClient) {}
 
   getTvShows(searchValues): Observable<HttpResponse<any>> {
@@ -24,6 +25,15 @@ export class TvShowsService {
     const params = createHttpParams(searchValues);
 
     return this.http.get<any>(`${this.resourceUrl}/${id}`, {
+      params,
+      observe: 'response'
+    });
+  }
+
+  searchTvShows(searchValues): Observable<HttpResponse<any>> {
+    const params = createHttpParams(searchValues);
+
+    return this.http.get<any>(`${environment.api_url}search/tv`, {
       params,
       observe: 'response'
     });

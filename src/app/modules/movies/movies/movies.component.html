@@ -1,5 +1,11 @@
 <div class="container">
   <app-navigation></app-navigation>
+
+  <app-filter
+    [value]="moviesService.filter"
+    (filter)="getMovies($event)"
+  ></app-filter>
+
   <div class="content-row cont wrap center-items">
     <div
       *ngFor="let movie of data"

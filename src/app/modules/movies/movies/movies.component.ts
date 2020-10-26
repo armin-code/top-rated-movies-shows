@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../../../services/movies.service';
+import { MoviesService } from '../../../services/movies/movies.service';
 import { environment } from './../../../../environments/environment';
 import { filterDefault } from './../../../app.constants';
 
@@ -11,15 +11,37 @@ import { filterDefault } from './../../../app.constants';
 export class MoviesComponent implements OnInit {
   data: any[] = [];
   imagePath = environment.image_path;
-  constructor(private moviesService: MoviesService) {}
+
+  constructor(public moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.getTopRatedMovies();
+    this.getMovies(this.moviesService.filter);
   }
 
   getTopRatedMovies(): void {
     this.moviesService.getMovies(filterDefault).subscribe(response => {
       this.data = response.body.results.slice(0, 10);
     });
+  }
+
+  searchMovies(filter): void {
+    this.moviesService.searchMovies(filter).subscribe(response => {
+      this.data = response.body.results.slice(0, 10);
+    });
+  }
+
+  getMovies(value: string): void {
+    const searchFilter = value ? value.length > 2 : 0;
+    this.moviesService.filter = value;
+    if (searchFilter) {
+      const filterSerach = {
+        ...filterDefault,
+        ...{ query: this.moviesService.filter }
+      };
+      this.searchMovies(filterSerach);
+      return;
+    }
+
+    this.getTopRatedMovies();
   }
 }

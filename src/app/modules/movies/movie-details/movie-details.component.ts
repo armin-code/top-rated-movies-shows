@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { filterDefault } from '../../../app.constants';
-import { MoviesService } from '../../../services/movies.service';
+import { MoviesService } from '../../../services/movies/movies.service';
 
 @Component({
   selector: 'app-movie-details',

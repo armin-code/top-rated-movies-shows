@@ -11,15 +11,35 @@ import { filterDefault } from './../../../app.constants';
 export class TvShowsComponent implements OnInit {
   data: any[] = [];
   imagePath = environment.image_path;
-  constructor(private tvShowsService: TvShowsService) {}
+  constructor(public tvShowsService: TvShowsService) {}
 
   ngOnInit(): void {
-    this.getTopRatedTvShows();
+    this.getTvShows(this.tvShowsService.filter);
   }
 
   getTopRatedTvShows(): void {
     this.tvShowsService.getTvShows(filterDefault).subscribe(response => {
       this.data = response.body.results.slice(0, 10);
     });
+  }
+
+  searchMovies(filter): void {
+    this.tvShowsService.searchTvShows(filter).subscribe(response => {
+      this.data = response.body.results.slice(0, 10);
+    });
+  }
+
+  getTvShows(value: string): void {
+    const searchFilter = value ? value.length > 2 : 0;
+    this.tvShowsService.filter = value;
+    if (searchFilter) {
+      const filterSerach = {
+        ...filterDefault,
+        ...{ query: this.tvShowsService.filter }
+      };
+      this.searchMovies(filterSerach);
+    } else {
+      this.getTopRatedTvShows();
+    }
   }
 }
