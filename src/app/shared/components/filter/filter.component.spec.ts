@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FilterComponent } from './filter.component';
 
 describe('FilterComponent', () => {
@@ -8,9 +7,8 @@ describe('FilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterComponent ]
-    })
-    .compileComponents();
+      declarations: [FilterComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,9 +22,9 @@ describe('FilterComponent', () => {
   });
 
   it('should not output duplicate values', () => {
-    const component = new FilterComponent();        
-    spyOn(component.filter, 'emit');
-    component.search('test');
-    expect(component.filter.emit).toHaveBeenCalled();
+    const filterComponent = new FilterComponent();
+    spyOn(filterComponent.filter, 'emit');
+    filterComponent.search('test');
+    expect(filterComponent.filter.emit).toHaveBeenCalled();
   });
 });

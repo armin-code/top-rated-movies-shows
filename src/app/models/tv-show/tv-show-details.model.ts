@@ -9,7 +9,7 @@ export interface TvShowDetails {
   in_production: boolean;
   languages: string[];
   last_air_date: string;
-  last_episode_to_air: Object;
+  last_episode_to_air: object;
   name: string;
   networks: string[];
   next_episode_to_air: string;

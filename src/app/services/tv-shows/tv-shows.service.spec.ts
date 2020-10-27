@@ -26,11 +26,10 @@ describe('TvShowsService', () => {
     });
     service = TestBed.inject(TvShowsService);
     httpMock = TestBed.inject(HttpTestingController);
-    httpTestingController = TestBed.get(HttpTestingController);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
-    // After every test, assert that there are no more pending requests.
     httpTestingController.verify();
   });
 

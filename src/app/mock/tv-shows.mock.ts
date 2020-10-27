@@ -34,13 +34,12 @@ export const mockTVShows: TvShow[] = [
   }
 ];
 
-export const mockTvShowResponse  = {
-    page: 1,
-    results: mockTVShows,
-    total_pages: 100,
-    total_results: 2555
-  }
-  
+export const mockTvShowResponse = {
+  page: 1,
+  results: mockTVShows,
+  total_pages: 100,
+  total_results: 2555
+};
 
 export const mockTVShowsDetails: TvShowDetails = {
   backdrop_path: 'test',

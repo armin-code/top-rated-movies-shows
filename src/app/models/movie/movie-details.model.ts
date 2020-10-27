@@ -1,7 +1,7 @@
 export interface MovieDetails {
   adult: boolean;
   backdrop_path: string;
-  belongs_to_collection: Object;
+  belongs_to_collection: object;
   budget: number;
   genres: string[];
   homepage: string;
