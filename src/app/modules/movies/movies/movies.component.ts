@@ -25,13 +25,13 @@ export class MoviesComponent implements OnInit {
 
   getTopRatedMovies(): void {
     this.moviesService.getMovies(filterDefault).subscribe(response => {
-      this.data = getTopTen(response.body.results);
+      this.data = response.body ? getTopTen(response.body.results) : [];
     });
   }
 
   searchMovies(filter): void {
     this.moviesService.searchMovies(filter).subscribe(response => {
-      this.data = response.body.results;
+      this.data = response.body ? response.body.results : [];
     });
   }
 

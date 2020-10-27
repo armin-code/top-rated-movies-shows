@@ -16,8 +16,7 @@ export class TvShowsService {
 
   getTvShows(searchValues): Observable<HttpResponse<TvShowResponse>> {
     const params = createHttpParams(searchValues);
-
-    return this.http.get<any>(`${this.resourceUrl}/top_rated`, {
+    return this.http.get<TvShowResponse>(`${this.resourceUrl}/top_rated`, {
       params,
       observe: 'response'
     });

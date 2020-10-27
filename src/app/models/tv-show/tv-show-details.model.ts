@@ -1,17 +1,17 @@
 export interface TvShowDetails {
   backdrop_path: string;
-  created_by: [];
+  created_by: string[];
   episode_run_time: number[];
   first_air_date: string;
-  genres: [];
+  genres: string[];
   homepage: string;
   id: number;
-  in_production: false;
+  in_production: boolean;
   languages: string[];
   last_air_date: string;
-  last_episode_to_air: {};
+  last_episode_to_air: Object;
   name: string;
-  networks: [];
+  networks: string[];
   next_episode_to_air: string;
   number_of_episodes: number;
   number_of_seasons: number;
@@ -21,8 +21,8 @@ export interface TvShowDetails {
   overview: string;
   popularity: number;
   poster_path: string;
-  production_companies: [];
-  seasons: [];
+  production_companies: string[];
+  seasons: string[];
   status: string;
   type: string;
   vote_average: number;

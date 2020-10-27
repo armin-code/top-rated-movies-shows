@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TvShow } from '../../../models/tv-show/tv-show.model';
 import { TvShowsService } from '../../../services/tv-shows/tv-shows.service';
-import { checkSearchFilter, getTopTen } from '../../../shared/utils/helper.utils';
+import {
+  checkSearchFilter,
+  getTopTen
+} from '../../../shared/utils/helper.utils';
 import { environment } from './../../../../environments/environment';
 import { filterDefault } from './../../../app.constants';
 
@@ -22,13 +25,13 @@ export class TvShowsComponent implements OnInit {
 
   getTopRatedTvShows(): void {
     this.tvShowsService.getTvShows(filterDefault).subscribe(response => {
-      this.data = getTopTen(response.body.results);
+      this.data = response.body ? getTopTen(response.body.results) : [];
     });
   }
 
   searchMovies(filter): void {
     this.tvShowsService.searchTvShows(filter).subscribe(response => {
-      this.data = response.body.results;
+      this.data = response.body ? response.body.results : [];
     });
   }
 

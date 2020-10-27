@@ -22,4 +22,11 @@ describe('FilterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not output duplicate values', () => {
+    const component = new FilterComponent();        
+    spyOn(component.filter, 'emit');
+    component.search('test');
+    expect(component.filter.emit).toHaveBeenCalled();
+  });
 });
