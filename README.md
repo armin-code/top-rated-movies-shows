@@ -6,7 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` or `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Install dependencies
+
+Run `yarn install` to install all required dependencies
 
 ## Build
 
@@ -19,4 +21,4 @@ Run `yarn test --code-coverage` to execute the unit tests an check code coverage
 
 ## Linter check
 
-Run `ng lint` or `yarn lintyarn lint` to execute to check linter errors and warnings
+Run `ng lint` or `yarn lint` to execute to check linter errors and warnings
