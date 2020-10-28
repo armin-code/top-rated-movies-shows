@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { filterDefault } from 'src/app/app.constants';
-import { mockMoviesResponse, mockMovieDetails } from './../../mock/movie.mock';
+import { mockMovieDetails, mockMoviesResponse } from './../../mock/movie.mock';
 import { MovieDetails } from './../../models/movie/movie-details.model';
 import { MovieResponse } from './../../models/movie/movie-response.model';
 import { MoviesService } from './movies.service';
@@ -47,7 +47,6 @@ describe('MoviesService', () => {
     service
       .getMovieDetails(filterDefault, 100)
       .subscribe((data: HttpResponse<MovieDetails>) => {
-        console.log(data.body);
         expect(data.body).toEqual(mockMovieDetails);
       });
     const req = httpMock.expectOne(
